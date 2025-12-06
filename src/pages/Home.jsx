@@ -26,6 +26,13 @@ export default function Home() {
           </div>
         </Link>
 
+        <Link to="/map" style={linkStyle}>
+          <div style={cardStyle}>
+            <h2>🗺️ {t.mapModule}</h2>
+            <p>{t.mapDescription}</p>
+          </div>
+        </Link>
+
         {/* Dodaj tutaj kolejne moduły w przyszłości */}
       </nav>
     </div>

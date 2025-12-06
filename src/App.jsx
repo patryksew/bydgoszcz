@@ -4,6 +4,7 @@ import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import TrailsWrapper from "./pages/TrailsWrapper";
 import QuestionWrapper from "./pages/QuestionWrapper";
+import MapWrapper from "./pages/MapWrapper";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: "questions",
         element: <QuestionWrapper />
+      },
+      {
+        path: "map",
+        element: <MapWrapper />
       }
       // Dodaj tutaj kolejne ścieżki dla innych modułów
     ]

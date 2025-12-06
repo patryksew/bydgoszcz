@@ -12,6 +12,8 @@ export const translations = {
     trailsDescription: "Moduł tras turystycznych",
     questionsModule: "Questions",
     questionsDescription: "Moduł quizu o Bydgoszczy",
+    mapModule: "Mapa",
+    mapDescription: "Mapa z powiadomieniami o bliskości",
 
     // Trails
     chooseTrail: "Wybierz trasę",
@@ -38,6 +40,8 @@ export const translations = {
     trailsDescription: "Tourist trails module",
     questionsModule: "Questions",
     questionsDescription: "Bydgoszcz quiz module",
+    mapModule: "Map",
+    mapDescription: "Map with proximity notifications",
 
     // Trails
     chooseTrail: "Choose a trail",

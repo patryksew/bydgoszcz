@@ -67,7 +67,7 @@ function MapWrapper() {
   };
 
   return (
-    <div style={{ width: '100vw', height: '100vh', display: 'flex', flexDirection: 'column' }}>
+    <div style={{ width: '100%', height: 'calc(100vh - 60px)', display: 'flex', flexDirection: 'column' }}>
       <div style={{
         padding: '10px',
         backgroundColor: '#1a1a1a',
