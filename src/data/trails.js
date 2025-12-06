@@ -8,7 +8,37 @@ export const trails = [
     },
     time: "45 min",
     distance: "3 km",
-    image: "/images/brda.jpg"
+    image: "/images/brda.jpg",
+      "questions": [
+          {
+              "id": 1,
+              "question": "Jaka rzeka przepływa przez Bydgoszcz?",
+              "question_en": "What river goes through Bydgoszcz?",
+              "image": "image1.png",
+              "long": 5.4,
+              "lat": 12,
+              "answers": [
+                  {"text": "Wisła", "text_en": "Wispula", "isCorrect": false},
+                  {"text": "Brda", "text_en": "Wispula", "isCorrect": true},
+                  {"text": "Odra", "text_en": "Wispula", "isCorrect": false},
+                  {"text": "Warta", "text_en": "Wispula", "isCorrect": false}
+              ]
+          },
+          {
+              "id": 2,
+              "question": "Jaka rzeka przepływa przez Bydgoszcz?",
+              "question_en": "What river goes through Bydgoszcz?",
+              "image": "image1.png",
+              "long": 5.4,
+              "lat": 12,
+              "answers": [
+                  {"text": "Wisła", "text_en": "Wispula", "isCorrect": false},
+                  {"text": "Brda", "text_en": "Wispula", "isCorrect": true},
+                  {"text": "Odra", "text_en": "Wispula", "isCorrect": false},
+                  {"text": "Warta", "text_en": "Wispula", "isCorrect": false}
+              ]
+          }
+      ]
   },
   {
     id: 2,
@@ -19,6 +49,36 @@ export const trails = [
     },
     time: "1 h",
     distance: "2 km",
-    image: "/images/oldtown.jpg"
+    image: "/images/oldtown.jpg",
+      "questions": [
+          {
+              "id": 1,
+              "question": "Jaka rzeka przepływa przez Bydgoszcz?",
+              "question_en": "What river goes through Bydgoszcz?",
+              "image": "image1.png",
+              "long": 5.4,
+              "lat": 12,
+              "answers": [
+                  {"text": "Wisła", "text_en": "Wispula", "isCorrect": false},
+                  {"text": "Brda", "text_en": "Wispula", "isCorrect": true},
+                  {"text": "Odra", "text_en": "Wispula", "isCorrect": false},
+                  {"text": "Warta", "text_en": "Wispula", "isCorrect": false}
+              ]
+          },
+          {
+              "id": 2,
+              "question": "Jaka rzeka przepływa przez Bydgoszcz?",
+              "question_en": "What river goes through Bydgoszcz?",
+              "image": "image1.png",
+              "long": 5.4,
+              "lat": 12,
+              "answers": [
+                  {"text": "Wisła", "text_en": "Wispula", "isCorrect": false},
+                  {"text": "Brda", "text_en": "Wispula", "isCorrect": true},
+                  {"text": "Odra", "text_en": "Wispula", "isCorrect": false},
+                  {"text": "Warta", "text_en": "Wispula", "isCorrect": false}
+              ]
+          }
+      ]
   }
 ];
