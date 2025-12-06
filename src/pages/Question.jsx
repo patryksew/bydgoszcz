@@ -4,30 +4,40 @@ import { useState } from "react";
 
 function Question({points, setPoints}) {
     const [selected, setSelected] = useState(null);
+    const [counter, setCounter] = useState(0);
 
-    function addPoints(value) {
-        setPoints(prev => prev + value);
+
+    function addPoints(counter) {
+
+        if(counter == 1)
+        {
+            setPoints(prev => prev + 3);
+            setCounter(5);
+        }
+        else if(counter == 2)
+            setPoints(prev => prev + 1);
     }
 
     function handleAnswer(answer) {
+        const newCounter = counter + 1;
+        setCounter(newCounter);
         if(answer == "A"){
             setSelected(answer);
-            addPoints(3);
+            addPoints(newCounter);
+
         }
         else if(answer == "B")
         {
             setSelected(answer);
-            addPoints(1);
+
         }
         else if(answer == "C")
         {
             setSelected(answer);
-            addPoints(0);
         }
          else if(answer == "D")
         {
             setSelected(answer);
-            addPoints(0);
         }
     }
   return (
