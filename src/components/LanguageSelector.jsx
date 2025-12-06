@@ -1,0 +1,22 @@
+export default function LanguageSelector({ onSelect }) {
+  return (
+    <div style={{ textAlign: "center", marginTop: "80px" }}>
+      <h1>Choose Language / Wybierz język</h1>
+
+      <button onClick={() => onSelect("pl")} style={buttonStyle}>
+        🇵🇱 Polski
+      </button>
+
+      <button onClick={() => onSelect("en")} style={buttonStyle}>
+        🇬🇧 English
+      </button>
+    </div>
+  );
+}
+
+const buttonStyle = {
+  padding: "12px 25px",
+  margin: "10px",
+  fontSize: "18px",
+  cursor: "pointer"
+};
