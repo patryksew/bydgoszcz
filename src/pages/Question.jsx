@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { translations } from "../data/translations";
-import routesData from "../data/routes.json";
+import routesData from "../data/trails.json";
 
 function Question({points, setPoints, lang}) {
     const [selected, setSelected] = useState(null);
