@@ -18,7 +18,7 @@ export const useGPS = (options = {}) => {
   const [isTracking, setIsTracking] = useState(false);
   const watchIdRef = useRef(null);
 
-  const handleSuccess = (pos) => {
+  const handleSuccess = useRef((pos) => {
     const { latitude, longitude, accuracy, altitude, altitudeAccuracy, heading, speed } = pos.coords;
     setPosition({
       lat: latitude,
@@ -31,9 +31,9 @@ export const useGPS = (options = {}) => {
       timestamp: pos.timestamp
     });
     setError(null);
-  };
+  }).current;
 
-  const handleError = (err) => {
+  const handleError = useRef((err) => {
     let errorMessage;
     switch (err.code) {
       case err.PERMISSION_DENIED:
@@ -50,7 +50,7 @@ export const useGPS = (options = {}) => {
         break;
     }
     setError(errorMessage);
-  };
+  }).current;
 
   const startTracking = useRef(() => {
     if (!navigator.geolocation) {
@@ -128,5 +128,4 @@ export const calculateDistance = (lat1, lon1, lat2, lon2) => {
 };
 
 export default useGPS;
-
 

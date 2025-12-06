@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import MapComponent from './components/MapComponent'
+import { MapWithProximity } from './modules/proximity-notifications'
 import './App.css'
 
 function App() {
@@ -87,11 +87,13 @@ function App() {
       </div>
 
       <div style={{ flex: 1, position: 'relative' }}>
-        <MapComponent
-          initialCenter={[50.0647, 19.9450]}
-          zoom={14}
+        <MapWithProximity
           targetLocations={targetLocations}
-          proximityRadius={100}
+          mapOptions={{
+            initialCenter: [50.0647, 19.9450],
+            zoom: 14,
+            proximityRadius: 100
+          }}
           onProximityEnter={handleProximityEnter}
           onProximityExit={handleProximityExit}
         />
