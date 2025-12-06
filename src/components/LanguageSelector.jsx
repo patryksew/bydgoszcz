@@ -1,7 +1,9 @@
+import { translations } from "../data/translations";
+
 export default function LanguageSelector({ onSelect }) {
   return (
     <div style={{ textAlign: "center", marginTop: "80px" }}>
-      <h1>Choose Language / Wybierz język</h1>
+      <h1>{translations.en.chooseLanguage} / {translations.pl.chooseLanguage}</h1>
 
       <button onClick={() => onSelect("pl")} style={buttonStyle}>
         🇵🇱 Polski

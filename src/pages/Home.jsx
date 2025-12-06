@@ -1,16 +1,28 @@
 import { Link } from "react-router-dom";
+import { useLanguage } from "../hooks/useLanguage";
+import { translations } from "../data/translations";
 
 export default function Home() {
+  const { lang } = useLanguage();
+  const t = lang ? translations[lang] : translations.pl;
+
   return (
     <div style={containerStyle}>
-      <h1>Bydgoszcz - Projekt</h1>
-      <p>Wybierz moduł do podglądu:</p>
+      <h1>{t.appTitle}</h1>
+      <p>{t.chooseModule}</p>
 
       <nav style={navStyle}>
         <Link to="/trails" style={linkStyle}>
           <div style={cardStyle}>
-            <h2>🚶 Trails</h2>
-            <p>Moduł tras turystycznych</p>
+            <h2>🚶 {t.trailsModule}</h2>
+            <p>{t.trailsDescription}</p>
+          </div>
+        </Link>
+
+        <Link to="/questions" style={linkStyle}>
+          <div style={cardStyle}>
+            <h2>❓ {t.questionsModule}</h2>
+            <p>{t.questionsDescription}</p>
           </div>
         </Link>
 
