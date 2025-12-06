@@ -1,4 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { LanguageProvider } from "./context/LanguageContext";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import TrailsWrapper from "./pages/TrailsWrapper";
@@ -27,7 +28,11 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <LanguageProvider>
+      <RouterProvider router={router} />
+    </LanguageProvider>
+  );
 }
 
 export default App;
