@@ -1,23 +1,25 @@
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { useLanguage } from "../hooks/useLanguage";
+import { translations } from "../data/translations";
 
 export default function Layout() {
   const location = useLocation();
   const isHome = location.pathname === "/";
   const { lang, setLang } = useLanguage();
+  const t = lang ? translations[lang] : translations.pl;
 
   return (
     <div>
       <nav style={navStyle}>
         {!isHome && (
           <Link to="/" style={linkStyle}>
-            ← Powrót do strony głównej
+            ← {t.backToHome}
           </Link>
         )}
 
         {lang && (
           <div style={langSwitcherStyle}>
-            <span style={langLabelStyle}>Język: </span>
+            <span style={langLabelStyle}>{t.language}: </span>
             <button
               onClick={() => setLang("pl")}
               style={lang === "pl" ? activeLangButton : langButton}

@@ -1,11 +1,10 @@
 import { useState } from "react";
+import { translations } from "../data/translations";
 
-
-
-function Question({points, setPoints}) {
+function Question({points, setPoints, lang}) {
     const [selected, setSelected] = useState(null);
     const [counter, setCounter] = useState(0);
-
+    const t = translations[lang] || translations.pl;
 
     function addPoints(counter) {
 
@@ -26,42 +25,39 @@ function Question({points, setPoints}) {
             addPoints(newCounter);
 
         }
-        else if(answer == "B")
+        else if(answer === "B")
         {
             setSelected(answer);
 
         }
-        else if(answer == "C")
+        else if(answer === "C")
         {
             setSelected(answer);
         }
-         else if(answer == "D")
+         else if(answer === "D")
         {
             setSelected(answer);
         }
     }
   return (
-    <div>
-    <div className="points">Points = {points}
-    </div>
-    <div className="image">
-        <img src = 'image.png' />
+    <div style={{ padding: "20px" }}>
+    <div className="points">{t.points} = {points}
     </div>
     <div className="question">
-        <p>Jaka rzeka przepływa przez Bydgoszcz?</p>
+        <p>{t.questionText}</p>
     </div>
     <div className= "answers">
         <button className="answer" onClick={() => handleAnswer("A")}
-        style={{ backgroundColor: selected === "A" ? "green" : "" }}> A. Wisła</button>
+        style={{ backgroundColor: selected === "A" ? "green" : "" }}> A. {t.answerA}</button>
 
         <button className="answer" onClick={() => handleAnswer("B")}
-        style={{ backgroundColor: selected === "B" ? "red" : "" }}> B. Brda</button>
+        style={{ backgroundColor: selected === "B" ? "red" : "" }}> B. {t.answerB}</button>
 
         <button className="answer" onClick={() => handleAnswer("C")}
-        style={{ backgroundColor: selected === "C" ? "red" : "" }}> C. Odra</button>
+        style={{ backgroundColor: selected === "C" ? "red" : "" }}> C. {t.answerC}</button>
 
         <button className="answer" onClick={() => handleAnswer("D")}
-        style={{ backgroundColor: selected === "D" ? "red" : "" }}> D. Odra</button>
+        style={{ backgroundColor: selected === "D" ? "red" : "" }}> D. {t.answerD}</button>
     </div>
     </div>
   );

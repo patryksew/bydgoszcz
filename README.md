@@ -14,6 +14,7 @@ Projekt wykorzystuje React Router do zarządzania nawigacją między modułami:
 
 - **`/`** - Strona główna z nawigacją do poszczególnych modułów
 - **`/trails`** - Moduł tras turystycznych
+- **`/questions`** - Moduł quizu o Bydgoszczy
 
 ## Zarządzanie językiem
 

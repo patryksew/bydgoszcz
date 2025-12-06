@@ -19,7 +19,7 @@ const router = createBrowserRouter([
         element: <TrailsWrapper />
       },
       {
-        path: "question",
+        path: "questions",
         element: <QuestionWrapper />
       }
       // Dodaj tutaj kolejne ścieżki dla innych modułów
