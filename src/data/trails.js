@@ -15,8 +15,8 @@ export const trails = [
               "question": "Jaka rzeka przepływa przez Bydgoszcz?",
               "question_en": "What river goes through Bydgoszcz?",
               "image": "image1.png",
-              "long": 5.4,
-              "lat": 12,
+              "lat": 53.1300,
+              "long": 18.0000,
               "answers": [
                   {"text": "Wisła", "text_en": "Wispula", "isCorrect": false},
                   {"text": "Brda", "text_en": "Wispula", "isCorrect": true},
@@ -29,8 +29,8 @@ export const trails = [
               "question": "Jaka rzeka przepływa przez Bydgoszcz?",
               "question_en": "What river goes through Bydgoszcz?",
               "image": "image1.png",
-              "long": 5.4,
-              "lat": 12,
+              "lat": 53.1250,
+              "long": 18.0050,
               "answers": [
                   {"text": "Wisła", "text_en": "Wispula", "isCorrect": false},
                   {"text": "Brda", "text_en": "Wispula", "isCorrect": true},
@@ -56,8 +56,8 @@ export const trails = [
               "question": "Jaka rzeka przepływa przez Bydgoszcz?",
               "question_en": "What river goes through Bydgoszcz?",
               "image": "image1.png",
-              "long": 5.4,
-              "lat": 12,
+              "lat": 53.1238,
+              "long": 18.0050,
               "answers": [
                   {"text": "Wisła", "text_en": "Wispula", "isCorrect": false},
                   {"text": "Brda", "text_en": "Wispula", "isCorrect": true},
@@ -70,8 +70,8 @@ export const trails = [
               "question": "Jaka rzeka przepływa przez Bydgoszcz?",
               "question_en": "What river goes through Bydgoszcz?",
               "image": "image1.png",
-              "long": 5.4,
-              "lat": 12,
+              "lat": 53.1235,
+              "long": 18.0084,
               "answers": [
                   {"text": "Wisła", "text_en": "Wispula", "isCorrect": false},
                   {"text": "Brda", "text_en": "Wispula", "isCorrect": true},
