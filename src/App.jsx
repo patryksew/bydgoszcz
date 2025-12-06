@@ -1,18 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import Question from './Question.jsx'
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Layout from "./components/Layout";
+import Home from "./pages/Home";
+import TrailsWrapper from "./pages/TrailsWrapper";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      {
+        index: true,
+        element: <Home />
+      },
+      {
+        path: "trails",
+        element: <TrailsWrapper />
+      }
+      // Dodaj tutaj kolejne ścieżki dla innych modułów
+    ]
+  }
+]);
 
 function App() {
-  const [points, setPoints] = useState(0);
-
-
-  return (
-    <div>
-      <Question points={points} setPoints = {setPoints} />
-    </div>
-  )
+  return <RouterProvider router={router} />;
 }
 
-export default App
+export default App;
