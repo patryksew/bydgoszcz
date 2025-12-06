@@ -1,0 +1,49 @@
+.game-end {
+  padding: 30px;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.game-end__title {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.game-end__subtitle {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.game-end__box {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  margin-bottom: 30px;
+}
+
+.game-end__stat {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.game-end__button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 80%;
+  color: white;
+  margin-bottom: 10px;
+}
+
+/* dwa rodzaje przycisków */
+.game-end__button--primary {
+  background-color: #4ECDC4;
+}
+
+.game-end__button--secondary {
+  background-color: #5567FF;
+}
