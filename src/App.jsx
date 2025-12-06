@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import TrailsWrapper from "./pages/TrailsWrapper";
 import QuestionWrapper from "./pages/QuestionWrapper";
 import MapWrapper from "./pages/MapWrapper";
+import GameFlow from "./pages/GameFlow";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       }
       // Dodaj tutaj kolejne ścieżki dla innych modułów
     ]
+  },
+  {
+    path: "/game",
+    element: <GameFlow />
   }
 ]);
 

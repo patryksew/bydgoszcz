@@ -14,6 +14,8 @@ export const translations = {
     questionsDescription: "Moduł quizu o Bydgoszczy",
     mapModule: "Mapa",
     mapDescription: "Mapa z powiadomieniami o bliskości",
+    gameModule: "Gra",
+    gameDescription: "Zagraj w grę z pytaniami i mapą",
 
     // Trails
     chooseTrail: "Wybierz trasę",
@@ -42,6 +44,8 @@ export const translations = {
     questionsDescription: "Bydgoszcz quiz module",
     mapModule: "Map",
     mapDescription: "Map with proximity notifications",
+    gameModule: "Game",
+    gameDescription: "Play the game with questions and map",
 
     // Trails
     chooseTrail: "Choose a trail",
