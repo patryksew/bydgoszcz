@@ -12,6 +12,8 @@ export default function GameFlow() {
   const [points, setPoints] = useState(0);
   const [attempts, setAttempts] = useState({}); // Track attempts per question
   const [gameFinished, setGameFinished] = useState(false);
+  const [startTime, setStartTime] = useState(null);
+  const [endTime, setEndTime] = useState(null);
 
   // Handler for trail selection - resets game state
   const handleTrailSelect = (trail) => {
@@ -20,6 +22,8 @@ export default function GameFlow() {
     setPoints(0);
     setAttempts({});
     setGameFinished(false);
+    setStartTime(Date.now());
+    setEndTime(null);
   };
 
   // Step 1: Language selection
@@ -32,6 +36,15 @@ export default function GameFlow() {
     if (gameFinished) {
       const maxPoints = selectedTrail.questions.length * 3;
       const percentage = Math.round((points / maxPoints) * 100);
+      let durationText = null;
+      if (startTime && endTime) {
+        const ms = endTime - startTime;
+        const seconds = Math.floor(ms / 1000);
+        const minutes = Math.floor(seconds / 60);
+        const remainingSeconds = seconds % 60;
+
+        durationText = `${minutes} min ${remainingSeconds} s`;
+      }
 
       return (
         <div style={finishScreenStyle}>
@@ -67,6 +80,16 @@ export default function GameFlow() {
               <p style={{ fontSize: '1.1rem', color: '#7f8c8d', margin: '10px 0 0 0' }}>
                 z {maxPoints} punktów ({percentage}%)
               </p>
+              {durationText && (
+                <p style={{
+                  fontSize: '1.1rem',
+                  color: '#2c3e50',
+                  marginTop: '10px',
+                  fontWeight: '500'
+                }}>
+                  Czas gry: <strong>{durationText}</strong>
+                </p>
+              )}
             </div>
             <button
               onClick={() => { setGameFinished(false); setSelectedTrail(null); }}
@@ -117,6 +140,7 @@ export default function GameFlow() {
       setCurrentQuestionIndex(prev => prev + 1);
     } else {
       // Game finished
+      setEndTime(Date.now());
       setGameFinished(true);
     }
   };
