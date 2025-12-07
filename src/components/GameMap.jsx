@@ -132,19 +132,14 @@ export default function GameMap({
 
   return (
     <div style={{
-    width: '80%',
-    margin: '0 auto',
-    display: 'flex',
-    flexDirection: 'column',
-    minHeight: '100vh'       // <-- najważniejsze
+    width: '100%',
+    height: '100vh',
+    position: 'relative'
 }}>
       {/* Header */}
       <div style={headerStyle}>
        <h1 style = {{
-        color : "black",
-        position: 'absolute',
-        width: '100%',
-        height: '100%'
+        color : "black"
         }}>🚶 {trail.title[lang]}</h1>
         <div style={infoStyle}>
 
@@ -169,9 +164,11 @@ export default function GameMap({
 
       {/* Map */}
       <div style={{ 
-      flexGrow: 1,
-      height: 'calc(100vh - 200px)',
-      position: 'relative'
+      width: '100%',
+      height: '100%',
+      position: 'absolute',
+      top: 0,
+      left: 0
       }}>
         {error && (
           <div style={errorStyle}>
@@ -273,9 +270,14 @@ export default function GameMap({
 }
 
 const headerStyle = { 
+  position: 'absolute',
+  top: '20px',
+  left: '50%',
+  transform: 'translateX(-50%)',
+  zIndex: 1000,
   padding: '12px 20px',
   backgroundColor: '#ffffffd9', // półprzezroczysta biel, elegancko wygląda
-  backdropFilter: "blur(6px)",  // efekt „glass”
+  backdropFilter: "blur(6px)",  // efekt „glass"
   color: '#000',
   display: 'flex',
   flexDirection: 'column',
@@ -283,7 +285,6 @@ const headerStyle = {
   gap: '10px',
   borderRadius: '20px',
   width: '60%',           // zmniejszona szerokość
-  margin: '20px auto 10px',
   boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
 };
 
