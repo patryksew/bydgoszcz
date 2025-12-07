@@ -16,6 +16,7 @@ export default function GameFlow() {
   const [startTime, setStartTime] = useState(null);
   const [endTime, setEndTime] = useState(null);
   const [showNarration, setShowNarration] = useState(true);
+  const [finalNarration, setFinalNarration] = useState(false);
 
 
   // Handler for trail selection - resets game state
@@ -28,6 +29,7 @@ export default function GameFlow() {
     setStartTime(Date.now());
     setEndTime(null);
     setShowNarration(true);
+    setFinalNarration(false);
   };
 
   // Step 1: Language selection
@@ -54,9 +56,9 @@ export default function GameFlow() {
           <NarrationModal
             avatar="/avatar.png"
             dialogId={999}
+            lang={lang}
             onFinish={() => {
               setFinalNarration(false);
-              setGameFinished(true);
             }}
           />
         );
@@ -158,6 +160,7 @@ export default function GameFlow() {
     } else {
       // Zakończenie gry – najpierw narracja
       setEndTime(Date.now());
+      setGameFinished(true);
       setFinalNarration(true);
     }
   };
