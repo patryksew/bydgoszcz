@@ -7,6 +7,7 @@ import QuestionModal from './QuestionModal';
 import { translations } from '../data/translations';
 import NarrationModal from '../components/NarrationModal';
 import { dialogs } from "../data/dialogs";
+import './GameMap.css';
 
 
 
@@ -137,25 +138,21 @@ export default function GameMap({
     position: 'relative'
 }}>
       {/* Header */}
-      <div style={headerStyle}>
-       <h1 style = {{
-        color : "black"
-        }}>🚶 {trail.title[lang]}</h1>
-        <div style={infoStyle}>
+      <div className="game-map-header">
+       <h1 className="game-map-title">🚶 {trail.title[lang]}</h1>
+        <div className="game-map-info">
 
           <button
           onClick={onBackToTrails}
-          style={backButtonStyle}
-          onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(192, 192, 192, 1)'}
-          onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'rgba(226, 226, 226, 1)'}
+          className="game-map-back-button"
           >
           ← {t.backToHome}
           </button>
-          <span style={infoItemStyle}>
+          <span className="game-map-info-item">
             <span>🎯</span>
             <span>{currentQuestionIndex + 1}/{totalQuestions}</span>
           </span>
-          <span style={infoItemStyle}>
+          <span className="game-map-info-item">
             <span>⭐</span>
             <span>{points} pkt</span>
           </span>
@@ -163,7 +160,7 @@ export default function GameMap({
       </div>
 
       {/* Map */}
-      <div style={{ 
+      <div style={{
       width: '100%',
       height: '100%',
       position: 'absolute',
@@ -269,58 +266,6 @@ export default function GameMap({
   );
 }
 
-const headerStyle = { 
-  position: 'absolute',
-  top: '20px',
-  left: '50%',
-  transform: 'translateX(-50%)',
-  zIndex: 1000,
-  padding: '12px 20px',
-  backgroundColor: '#ffffffd9', // półprzezroczysta biel, elegancko wygląda
-  backdropFilter: "blur(6px)",  // efekt „glass"
-  color: '#000',
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  gap: '10px',
-  borderRadius: '20px',
-  width: '60%',           // zmniejszona szerokość
-  boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
-};
-
-const backButtonStyle = {
-  padding: '10px 20px',
-  backgroundColor: '#c2c7ccff',
-  color: 'black',
-  border: 'none',
-  borderRadius: '8px',
-  cursor: 'pointer',
-  fontSize: '14px',
-  fontWeight: '500',
-  transition: 'all 0.2s',
-  display: 'flex',
-  alignItems: 'center',
-  gap: '8px'
-};
-
-const infoStyle = {
-  display: 'flex',
-  gap: '25px',
-  flexWrap: 'wrap',
-  alignItems: 'center'
-};
-
-const infoItemStyle = {
-  fontSize: '16px',
-  fontWeight: '500',
-  padding: '8px 16px',
-  backgroundColor: 'rgba(226, 226, 226, 1)',
-  borderRadius: '20px',
-  display: 'flex',
-  alignItems: 'center',
-  gap: '8px',
-  color: "#000000"
-};
 
 const errorStyle = {
   position: 'absolute',

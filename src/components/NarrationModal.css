@@ -96,7 +96,7 @@
   .narr-big-avatar {
     width: 55vw;              /* większy na telefonie */
     max-width: 260px;
-    bottom: 0;
+    bottom: 30%;              /* przesunięty wyżej, aby nie zasłaniał tekstu */
   }
 
   .narr-card {
