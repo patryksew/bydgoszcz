@@ -1,99 +1,128 @@
+/* Tło przyciemnione */
 .narr-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.6);   /* półprzezroczyste jak w pytaniach */
-  backdrop-filter: blur(3px);            /* rozmycie mapy */
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  backdrop-filter: blur(3px);
   z-index: 2000;
 }
 
-/* Modal wrapper */
-.narr-modal {
+/* Główne ułożenie (karta + Twardowski) */
+.narr-container {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: white;
-  border-radius: 20px;
-  width: 90%;
-  max-width: 650px;
-  padding-bottom: 20px;
+  inset: 0;
   z-index: 2001;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-}
-
-/* Header */
-.narr-header {
-  background-color: #3498db;
-  padding: 20px;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  color: white;
-}
-
-.narr-title {
-  margin: 0;
-  font-size: 1.8rem;
-}
-
-/* Content */
-.narr-content {
-  padding: 25px;
-}
-
-/* Inside content layout */
-.narr-body {
   display: flex;
-  align-items: flex-start;
-  gap: 20px;
+  align-items: flex-end;
+  justify-content: center;
+  pointer-events: none;
 }
 
-/* Avatar */
-.narr-avatar {
-  width: 120px;
-  height: auto;
+/* Biała karta dialogowa */
+.narr-card {
+  background: white;
+  width: 90%;
+  max-width: 500px;
+  padding: 20px 25px;
+  border-radius: 25px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+  transform: translateY(-20px);
+  pointer-events: auto;
 }
 
-/* Bubble */
-.narr-bubble {
-  background: #ffffff;
+/* Nagłówek */
+.narr-card-header h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+/* Bąbelek tekstu */
+.narr-bubble-new {
+  margin-top: 15px;
+  background: #fff;
+  padding: 18px 20px;
   border-radius: 16px;
-  padding: 15px 20px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  font-size: 18px;
-  position: relative;
-  max-width: 350px;
-  color: #000;
+  font-size: 17px;
+  color: #333;
+  line-height: 1.45;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.09);
 }
 
-.narr-bubble::before {
-  content: "";
-  position: absolute;
-  left: -12px;
-  top: 20px;
-  width: 0;
-  height: 0;
-  border-right: 12px solid white;
-  border-top: 12px solid transparent;
-  border-bottom: 12px solid transparent;
-}
-
-/* Next btn */
-.narr-next-btn {
-  margin-top: 20px;
-  width: 100%;
-  padding: 14px;
-  border: none;
-  border-radius: 12px;
-  background-color: #3498db;
+/* Przycisk NEXT */
+.narr-next-btn-new {
+  margin-top: 18px;
+  padding: 12px 22px;
+  background: #3498db;
   color: white;
-  font-size: 1.1rem;
+  font-size: 17px;
+  border: none;
+  border-radius: 30px;
   cursor: pointer;
+  width: fit-content;
   transition: 0.2s;
 }
 
-.narr-next-btn:hover {
-  background-color: #2980b9;
+.narr-next-btn-new:hover {
+  background: #2c80c7;
+}
+
+/* POSTAĆ TWARDOWSKIEGO */
+.narr-big-avatar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 45%;
+  max-width: 260px;
+  pointer-events: none;
+}
+
+/* Responsywny duży avatar */
+.narr-big-avatar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 38vw;                /* skaluje się względem szerokości ekranu */
+  max-width: 320px;           /* limit na dużych ekranach */
+  min-width: 180px;           /* limit na małych telefonach */
+  height: auto;
+  z-index: 2001;
+  pointer-events: none;
+}
+
+/* --- TELEFONY --- */
+@media (max-width: 600px) {
+  .narr-big-avatar {
+    width: 55vw;              /* większy na telefonie */
+    max-width: 260px;
+    bottom: 0;
+  }
+
+  .narr-card {
+    width: 92%;
+    padding: 18px;
+    margin-bottom: 10px;
+  }
+}
+
+/* --- TABLETY --- */
+@media (min-width: 600px) and (max-width: 1024px) {
+  .narr-big-avatar {
+    width: 40vw;
+    max-width: 300px;
+  }
+}
+
+/* --- DUŻE DESKTOPY --- */
+@media (min-width: 1200px) {
+  .narr-big-avatar {
+    width: 28vw;              /* mniejszy na dużych monitorach */
+    max-width: 350px;
+  }
+
+  .narr-card {
+    max-width: 550px;
+    transform: translateY(-40px);
+  }
 }

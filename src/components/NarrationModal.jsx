@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./NarrationModal.css";
 import { dialogs } from "../data/dialogs";
-import { translations } from '../data/translations';
+import { translations } from "../data/translations";
 
 export default function NarrationModal({ avatar, dialogId, lang, onFinish }) {
   const lines = dialogs[dialogId]?.[lang] || dialogs[dialogId]?.pl;
@@ -12,35 +12,35 @@ export default function NarrationModal({ avatar, dialogId, lang, onFinish }) {
     if (index < lines.length - 1) {
       setIndex(index + 1);
     } else {
-      onFinish(); // koniec dialogu
+      onFinish();
     }
   };
 
   return (
     <>
-      {/* Overlay */}
-      <div className="narr-overlay" onClick={handleNext} />
+      <div className="narr-overlay" />
 
-      {/* Modal */}
-      <div className="narr-modal">
-        {/* Header */}
-        <div className="narr-header">
-          <h2 className="narr-title">{t.twardowski}</h2>
-        </div>
-
-        <div className="narr-content">
-          <div className="narr-body">
-            <img src={avatar} alt="postać" className="narr-avatar" />
-
-            <div className="narr-bubble">
-              <p>{lines[index]}</p>
-            </div>
+      <div className="narr-container">
+        {/* BIAŁA KARTA */}
+        <div className="narr-card">
+          {/* Tytuł */}
+          <div className="narr-card-header">
+            <h2>{t.twardowski}</h2>
           </div>
 
-          <button className="narr-next-btn" onClick={handleNext}>
-            {t.next}
+          {/* BUBBLE */}
+          <div className="narr-bubble-new">
+            {lines[index]}
+          </div>
+
+          {/* Przycisk */}
+          <button className="narr-next-btn-new" onClick={handleNext}>
+            {t.next} →
           </button>
         </div>
+
+        {/* POSTAĆ TWARDOWSKIEGO */}
+        <img src={avatar} alt="avatar" className="narr-big-avatar" />
       </div>
     </>
   );
