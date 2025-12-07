@@ -30,59 +30,7 @@ export default function Home() {
           </div>
         </Link>
 
-        <Link to="/trails" style={linkStyle}>
-          <div
-            style={cardStyle}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'translateY(-8px)';
-              e.currentTarget.style.boxShadow = '0 12px 24px rgba(46,204,113,0.2)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.08)';
-            }}
-          >
-            <div style={{ fontSize: '4rem', marginBottom: '15px' }}>🚶</div>
-            <h2 style={{ fontSize: '1.8rem', color: '#34495e', marginBottom: '12px' }}>{t.trailsModule}</h2>
-            <p style={{ fontSize: '1rem', color: '#7f8c8d', lineHeight: '1.6' }}>{t.trailsDescription}</p>
-          </div>
-        </Link>
-
-        <Link to="/questions" style={linkStyle}>
-          <div
-            style={cardStyle}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'translateY(-8px)';
-              e.currentTarget.style.boxShadow = '0 12px 24px rgba(241,196,15,0.2)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.08)';
-            }}
-          >
-            <div style={{ fontSize: '4rem', marginBottom: '15px' }}>❓</div>
-            <h2 style={{ fontSize: '1.8rem', color: '#34495e', marginBottom: '12px' }}>{t.questionsModule}</h2>
-            <p style={{ fontSize: '1rem', color: '#7f8c8d', lineHeight: '1.6' }}>{t.questionsDescription}</p>
-          </div>
-        </Link>
-
-        <Link to="/map" style={linkStyle}>
-          <div
-            style={cardStyle}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'translateY(-8px)';
-              e.currentTarget.style.boxShadow = '0 12px 24px rgba(155,89,182,0.2)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.08)';
-            }}
-          >
-            <div style={{ fontSize: '4rem', marginBottom: '15px' }}>🗺️</div>
-            <h2 style={{ fontSize: '1.8rem', color: '#34495e', marginBottom: '12px' }}>{t.mapModule}</h2>
-            <p style={{ fontSize: '1rem', color: '#7f8c8d', lineHeight: '1.6' }}>{t.mapDescription}</p>
-          </div>
-        </Link>
+        
 
         {/* Dodaj tutaj kolejne moduły w przyszłości */}
       </nav>

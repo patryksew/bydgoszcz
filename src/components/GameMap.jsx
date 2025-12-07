@@ -5,6 +5,8 @@ import L from 'leaflet';
 import { useGPS, calculateDistance } from '../modules/proximity-notifications/hooks/useGPS';
 import QuestionModal from './QuestionModal';
 import { translations } from '../data/translations';
+import NarrationModal from '../components/NarrationModal';
+
 
 // Fix Leaflet icons
 delete L.Icon.Default.prototype._getIconUrl;
@@ -50,6 +52,8 @@ export default function GameMap({
 }) {
   const t = translations[lang] || translations.pl;
   const [closedQuestionIndex, setClosedQuestionIndex] = useState(-1);
+
+  const [showNarration, setShowNarration] = useState(true);
 
   const proximityRadius = 50; // 50 meters
 
@@ -205,6 +209,13 @@ export default function GameMap({
         )}
       </div>
 
+      {showNarration && (
+        <NarrationModal
+          avatar="/avatar.png"
+          dialogId="intro"
+          onFinish={() => setShowNarration(false)}
+        />
+      )}
       {/* Question Modal */}
       {showQuestion && currentQuestion && (
         <QuestionModal

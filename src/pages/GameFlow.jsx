@@ -3,6 +3,7 @@ import { useLanguage } from '../hooks/useLanguage';
 import LanguageSelector from '../components/LanguageSelector';
 import TrailSelector from '../components/TrailSelector';
 import GameMap from '../components/GameMap';
+import NarrationModal from '../components/NarrationModal';
 import '../game.css';
 
 export default function GameFlow() {
@@ -14,6 +15,8 @@ export default function GameFlow() {
   const [gameFinished, setGameFinished] = useState(false);
   const [startTime, setStartTime] = useState(null);
   const [endTime, setEndTime] = useState(null);
+  const [showNarration, setShowNarration] = useState(true);
+
 
   // Handler for trail selection - resets game state
   const handleTrailSelect = (trail) => {
@@ -24,6 +27,7 @@ export default function GameFlow() {
     setGameFinished(false);
     setStartTime(Date.now());
     setEndTime(null);
+    setShowNarration(true);
   };
 
   // Step 1: Language selection
@@ -120,6 +124,7 @@ export default function GameFlow() {
     );
   }
 
+
   // Step 3: Game with map and questions
   const currentQuestion = selectedTrail.questions[currentQuestionIndex];
   const isLastQuestion = currentQuestionIndex === selectedTrail.questions.length - 1;
@@ -154,6 +159,7 @@ export default function GameFlow() {
   };
 
   return (
+  <>
     <GameMap
       trail={selectedTrail}
       currentQuestion={currentQuestion}
@@ -166,7 +172,8 @@ export default function GameFlow() {
       onWrongAnswer={handleWrongAnswer}
       onBackToTrails={() => setSelectedTrail(null)}
     />
-  );
+  </>
+);
 }
 
 const finishScreenStyle = {

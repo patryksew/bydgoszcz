@@ -15,8 +15,8 @@ export const trails = [
               "question": "Jaka rzeka przepływa przez Bydgoszcz?",
               "question_en": "What river goes through Bydgoszcz?",
               "image": "image1.png",
-              "lat": 53.1300,
-              "long": 18.0000,
+              "lat": 53.142059,
+              "long": 18.135225,
               "answers": [
                   {"text": "Wisła", "text_en": "Wispula", "isCorrect": false},
                   {"text": "Brda", "text_en": "Wispula", "isCorrect": true},
@@ -29,8 +29,8 @@ export const trails = [
               "question": "Jaka rzeka przepływa przez Bydgoszcz?",
               "question_en": "What river goes through Bydgoszcz?",
               "image": "image1.png",
-              "lat": 53.1250,
-              "long": 18.0050,
+              "lat": 53.142059,
+              "long": 18.135225,
               "answers": [
                   {"text": "Wisła", "text_en": "Wispula", "isCorrect": false},
                   {"text": "Brda", "text_en": "Wispula", "isCorrect": true},
