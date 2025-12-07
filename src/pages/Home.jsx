@@ -8,8 +8,9 @@ export default function Home() {
 
   return (
     <div style={containerStyle}>
-      <h1 style={{ fontSize: '3rem', color: '#2c3e50', marginBottom: '15px' }}>{t.appTitle}</h1>
-      <p style={{ fontSize: '1.3rem', color: '#7f8c8d', marginBottom: '20px' }}>{t.chooseModule}</p>
+      <h1 style={{ fontSize: '3rem', color: '#2c3e50', marginBottom: '15px' }}>
+      <img src="Logo.svg"  style={{ width: "180px", height: "auto" }}></img>
+      </h1>
 
       <nav style={navStyle}>
         <Link to="/game" style={linkStyle}>
@@ -24,9 +25,7 @@ export default function Home() {
               e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.08)';
             }}
           >
-            <div style={{ fontSize: '4rem', marginBottom: '15px' }}>🎮</div>
-            <h2 style={{ fontSize: '1.8rem', color: '#34495e', marginBottom: '12px' }}>{t.gameModule}</h2>
-            <p style={{ fontSize: '1rem', color: '#7f8c8d', lineHeight: '1.6' }}>{t.gameDescription}</p>
+            <h2 style={{ fontSize: '1.8rem', color: '#34495e', marginBottom: '12px' }}>START</h2>
           </div>
         </Link>
 
@@ -39,18 +38,22 @@ export default function Home() {
 }
 
 const containerStyle = {
-  padding: "60px 20px",
+ padding: "60px 20px",
   maxWidth: "1400px",
   margin: "0 auto",
   textAlign: "center",
   minHeight: "100vh",
-  backgroundColor: "#f5f7fa"
+  backgroundImage: "url('/BG.jpg')",
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+  backgroundRepeat: "no-repeat"
 };
+
 
 const navStyle = {
   display: "grid",
-  gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-  gap: "30px",
+  gridTemplateColumns: "repeat(auto-fit, minmax(180px, 200px))", //rozmiar przycisku
+  gap: "3000px",
   justifyContent: "center",
   marginTop: "50px",
   padding: "0 20px"
@@ -62,7 +65,7 @@ const linkStyle = {
 };
 
 const cardStyle = {
-  padding: "40px 30px",
+  padding: "6px 2px",
   border: "none",
   borderRadius: "16px",
   cursor: "pointer",

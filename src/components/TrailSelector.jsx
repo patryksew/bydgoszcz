@@ -6,8 +6,8 @@ export default function TrailSelector({ lang, onSelectTrail }) {
 
   return (
     <div style={containerStyle}>
-      <h1 style={{ fontSize: '2.5rem', color: '#2c3e50', marginBottom: '10px' }}>{t.chooseTrail}</h1>
-      <p style={{ color: '#7f8c8d', fontSize: '1.1rem' }}>Wybierz trasę i rozpocznij przygodę</p>
+      <img src="Logo.svg"  style={{ width: "180px", height: "70px" }}></img>
+     
       <div style={trailsContainerStyle}>
         {trails.map((trail, index) => (
           <div
@@ -50,6 +50,8 @@ export default function TrailSelector({ lang, onSelectTrail }) {
           </div>
         ))}
       </div>
+      <h1 style={{ fontSize: '2.5rem', color: '#000000ff', marginBottom: '10px' }}>{t.chooseTrail}</h1>
+      <p style={{ color: '#000000ff', fontSize: '1.1rem' }}>i rozpocznij przygodę</p>
     </div>
   );
 }
@@ -68,26 +70,30 @@ const containerStyle = {
   margin: '0 auto',
   textAlign: 'center',
   minHeight: '100vh',
-  backgroundColor: '#f5f7fa'
+  backgroundImage: "url('/BG.jpg')",
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+  backgroundRepeat: "no-repeat"
 };
 
 const trailsContainerStyle = {
-  display: 'grid',
-  gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-  gap: '30px',
-  justifyContent: 'center',
-  marginTop: '40px',
-  padding: '0 20px'
+   display: "grid",
+  gridTemplateColumns: "1fr",  
+  gap: "25px",
+  width: "100%",
+  maxWidth: "400px",
+  margin: "20px auto 20px auto", 
+  padding: "0 20px"
 };
 
 const trailCardStyle = {
-  padding: '35px',
+  padding: '15px',
   border: 'none',
   borderRadius: '16px',
   cursor: 'pointer',
   transition: 'all 0.3s ease',
   backgroundColor: 'white',
-  boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+  boxShadow: '0 4px 12px rgba(0,0,0,0,0)',
   textAlign: 'left',
   position: 'relative',
   overflow: 'hidden'
