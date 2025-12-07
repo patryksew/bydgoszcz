@@ -1,0 +1,99 @@
+.narr-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);   /* półprzezroczyste jak w pytaniach */
+  backdrop-filter: blur(3px);            /* rozmycie mapy */
+  z-index: 2000;
+}
+
+/* Modal wrapper */
+.narr-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 650px;
+  padding-bottom: 20px;
+  z-index: 2001;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Header */
+.narr-header {
+  background-color: #3498db;
+  padding: 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  color: white;
+}
+
+.narr-title {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+/* Content */
+.narr-content {
+  padding: 25px;
+}
+
+/* Inside content layout */
+.narr-body {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+/* Avatar */
+.narr-avatar {
+  width: 120px;
+  height: auto;
+}
+
+/* Bubble */
+.narr-bubble {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 15px 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  font-size: 18px;
+  position: relative;
+  max-width: 350px;
+  color: #000;
+}
+
+.narr-bubble::before {
+  content: "";
+  position: absolute;
+  left: -12px;
+  top: 20px;
+  width: 0;
+  height: 0;
+  border-right: 12px solid white;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+}
+
+/* Next btn */
+.narr-next-btn {
+  margin-top: 20px;
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background-color: #3498db;
+  color: white;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.narr-next-btn:hover {
+  background-color: #2980b9;
+}
