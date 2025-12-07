@@ -49,6 +49,18 @@ export default function GameFlow() {
 
         durationText = `${minutes} min ${remainingSeconds} s`;
       }
+      if (finalNarration) {
+        return (
+          <NarrationModal
+            avatar="/avatar.png"
+            dialogId={999}
+            onFinish={() => {
+              setFinalNarration(false);
+              setGameFinished(true);
+            }}
+          />
+        );
+      }
 
       return (
         <div style={finishScreenStyle}>
@@ -144,9 +156,9 @@ export default function GameFlow() {
     if (!isLastQuestion) {
       setCurrentQuestionIndex(prev => prev + 1);
     } else {
-      // Game finished
+      // Zakończenie gry – najpierw narracja
       setEndTime(Date.now());
-      setGameFinished(true);
+      setFinalNarration(true);
     }
   };
 
@@ -159,21 +171,21 @@ export default function GameFlow() {
   };
 
   return (
-  <>
-    <GameMap
-      trail={selectedTrail}
-      currentQuestion={currentQuestion}
-      currentQuestionIndex={currentQuestionIndex}
-      totalQuestions={selectedTrail.questions.length}
-      points={points}
-      attempts={attempts[currentQuestion.id] || 0}
-      lang={lang}
-      onCorrectAnswer={handleCorrectAnswer}
-      onWrongAnswer={handleWrongAnswer}
-      onBackToTrails={() => setSelectedTrail(null)}
-    />
-  </>
-);
+    <>
+      <GameMap
+        trail={selectedTrail}
+        currentQuestion={currentQuestion}
+        currentQuestionIndex={currentQuestionIndex}
+        totalQuestions={selectedTrail.questions.length}
+        points={points}
+        attempts={attempts[currentQuestion.id] || 0}
+        lang={lang}
+        onCorrectAnswer={handleCorrectAnswer}
+        onWrongAnswer={handleWrongAnswer}
+        onBackToTrails={() => setSelectedTrail(null)}
+      />
+    </>
+  );
 }
 
 const finishScreenStyle = {

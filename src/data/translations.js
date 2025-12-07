@@ -28,6 +28,12 @@ export const translations = {
     answerB: "Brda",
     answerC: "Odra",
     answerD: "Warta",
+
+    //Dialog
+    next: "Dalej",
+    twardowski: "Pan Twardowski",
+    distance: "Odległość"
+
   },
   en: {
     // Main
@@ -58,5 +64,11 @@ export const translations = {
     answerB: "Brda",
     answerC: "Oder",
     answerD: "Warta",
+
+    //dialog
+    next: 'Next',
+    twardowski: "Mr Twardowski",
+    distance: "Distance:"
+
   }
 };
