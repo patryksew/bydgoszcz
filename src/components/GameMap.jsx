@@ -131,19 +131,31 @@ export default function GameMap({
     : targetLocation;
 
   return (
-    <div style={{ width: '100%', height: '100vh', display: 'flex', flexDirection: 'column' }}>
+    <div style={{
+    width: '80%',
+    margin: '0 auto',
+    display: 'flex',
+    flexDirection: 'column',
+    minHeight: '100vh'       // <-- najważniejsze
+}}>
       {/* Header */}
       <div style={headerStyle}>
-        <button
+       <h1 style = {{
+        color : "black",
+        position: 'absolute',
+        width: '100%',
+        height: '100%'
+        }}>🚶 {trail.title[lang]}</h1>
+        <div style={infoStyle}>
+
+          <button
           onClick={onBackToTrails}
           style={backButtonStyle}
-          onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#4a5f7f'}
-          onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#34495e'}
-        >
-          <span>←</span>
-          <span>{t.backToHome}</span>
-        </button>
-        <div style={infoStyle}>
+          onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(192, 192, 192, 1)'}
+          onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'rgba(226, 226, 226, 1)'}
+          >
+          ← {t.backToHome}
+          </button>
           <span style={infoItemStyle}>
             <span>🎯</span>
             <span>{currentQuestionIndex + 1}/{totalQuestions}</span>
@@ -152,15 +164,15 @@ export default function GameMap({
             <span>⭐</span>
             <span>{points} pkt</span>
           </span>
-          <span style={infoItemStyle}>
-            <span>🚶</span>
-            <span>{trail.title[lang]}</span>
-          </span>
         </div>
       </div>
 
       {/* Map */}
-      <div style={{ flex: 1, position: 'relative' }}>
+      <div style={{ 
+      flexGrow: 1,
+      height: 'calc(100vh - 200px)',
+      position: 'relative'
+      }}>
         {error && (
           <div style={errorStyle}>
             ⚠️ {error}
@@ -172,6 +184,7 @@ export default function GameMap({
           zoom={16}
           style={{ width: '100%', height: '100%' }}
         >
+          
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -259,22 +272,25 @@ export default function GameMap({
   );
 }
 
-const headerStyle = {
-  padding: '20px 30px',
-  backgroundColor: '#2c3e50',
-  color: 'white',
+const headerStyle = { 
+  padding: '12px 20px',
+  backgroundColor: '#ffffffd9', // półprzezroczysta biel, elegancko wygląda
+  backdropFilter: "blur(6px)",  // efekt „glass”
+  color: '#000',
   display: 'flex',
-  justifyContent: 'space-between',
+  flexDirection: 'column',
   alignItems: 'center',
-  flexWrap: 'wrap',
-  gap: '15px',
-  boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+  gap: '10px',
+  borderRadius: '20px',
+  width: '60%',           // zmniejszona szerokość
+  margin: '20px auto 10px',
+  boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
 };
 
 const backButtonStyle = {
   padding: '10px 20px',
-  backgroundColor: '#34495e',
-  color: 'white',
+  backgroundColor: '#c2c7ccff',
+  color: 'black',
   border: 'none',
   borderRadius: '8px',
   cursor: 'pointer',
@@ -297,11 +313,12 @@ const infoItemStyle = {
   fontSize: '16px',
   fontWeight: '500',
   padding: '8px 16px',
-  backgroundColor: 'rgba(255,255,255,0.1)',
+  backgroundColor: 'rgba(226, 226, 226, 1)',
   borderRadius: '20px',
   display: 'flex',
   alignItems: 'center',
-  gap: '8px'
+  gap: '8px',
+  color: "#000000"
 };
 
 const errorStyle = {
