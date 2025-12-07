@@ -6,6 +6,8 @@ import { useGPS, calculateDistance } from '../modules/proximity-notifications/ho
 import QuestionModal from './QuestionModal';
 import { translations } from '../data/translations';
 import NarrationModal from '../components/NarrationModal';
+import { dialogs } from "../data/dialogs";
+
 
 
 // Fix Leaflet icons
@@ -53,7 +55,8 @@ export default function GameMap({
   const t = translations[lang] || translations.pl;
   const [closedQuestionIndex, setClosedQuestionIndex] = useState(-1);
 
-  const [showNarration, setShowNarration] = useState(true);
+  const [narrationId, setNarrationId] = useState(0);
+  const [finalNarration, setFinalNarration] = useState(false);
 
   const proximityRadius = 50; // 50 meters
 
@@ -78,17 +81,42 @@ export default function GameMap({
     return distance <= proximityRadius;
   }, [position, currentQuestion, proximityRadius]);
 
-  // Show question modal when in proximity and user hasn't closed it for this specific question
-  const showQuestion = isInProximity && closedQuestionIndex !== currentQuestionIndex;
+  useEffect(() => {
+    if (
+      isInProximity &&
+      narrationId === null &&
+      closedQuestionIndex !== currentQuestionIndex
+    ) {
+      const preId = 100 + (currentQuestionIndex + 1);
 
+      if (dialogs[preId]) {
+        setNarrationId(preId);
+      }
+    }
+  }, [isInProximity]);
+
+  // Show question modal when in proximity and user hasn't closed it for this specific question
+  const showQuestion =
+    isInProximity &&
+    closedQuestionIndex !== currentQuestionIndex &&
+    narrationId === null; // nie pokazuj pytania, jeśli trwa narracja
   const handleAnswerSubmit = (isCorrect) => {
+
     if (isCorrect) {
       setClosedQuestionIndex(currentQuestionIndex);
       onCorrectAnswer();
+
+      // narracja po pytaniu
+      const postId = 200 + (currentQuestionIndex + 1);
+      if (dialogs[postId]) {
+        setNarrationId(postId);
+        return;
+      }
     } else {
       onWrongAnswer();
     }
   };
+
 
   const handleCloseModal = () => {
     setClosedQuestionIndex(currentQuestionIndex);
@@ -209,7 +237,7 @@ export default function GameMap({
           <div style={distanceIndicatorStyle}>
             <span style={{ fontSize: '24px' }}>📍</span>
             <span>
-              Odległość: <strong>{
+              {t.distance} <strong>{
                 calculateDistance(
                   position.lat,
                   position.lng,
@@ -222,15 +250,16 @@ export default function GameMap({
         )}
       </div>
 
-      {showNarration && (
+      {narrationId !== null && (
         <NarrationModal
           avatar="/avatar.png"
-          dialogId="intro"
-          onFinish={() => setShowNarration(false)}
+          dialogId={narrationId}
+          lang={lang}
+          onFinish={() => setNarrationId(null)}
         />
       )}
       {/* Question Modal */}
-      {showQuestion && currentQuestion && (
+      {narrationId === null && showQuestion && currentQuestion && (
         <QuestionModal
           question={currentQuestion}
           lang={lang}
