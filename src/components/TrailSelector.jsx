@@ -9,22 +9,32 @@ export default function TrailSelector({ lang, onSelectTrail }) {
       <h1 style={{ fontSize: '2.5rem', color: '#2c3e50', marginBottom: '10px' }}>{t.chooseTrail}</h1>
       <p style={{ color: '#7f8c8d', fontSize: '1.1rem' }}>Wybierz trasę i rozpocznij przygodę</p>
       <div style={trailsContainerStyle}>
-        {trails.map((trail) => (
+        {trails.map((trail, index) => (
           <div
             key={trail.id}
-            style={trailCardStyle}
-            onClick={() => onSelectTrail(trail)}
+            style={{
+              ...trailCardStyle,
+              background: index === 1 ? "#cdcbcbff" : "white"
+            }}
+            onClick={() => {
+              if (index === 0) {
+                onSelectTrail(trail)}}}
+
             onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'translateY(-8px)';
-              e.currentTarget.style.boxShadow = '0 12px 24px rgba(0,0,0,0.15)';
+               if (index === 0) {
+                  e.currentTarget.style.transform = 'translateY(-8px)';
+                  e.currentTarget.style.boxShadow = '0 12px 24px rgba(0,0,0,0.15)';
+              }
             }}
             onMouseLeave={(e) => {
+              if (index === 0) {
               e.currentTarget.style.transform = 'translateY(0)';
               e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.08)';
+              }
             }}
           >
-            <div style={{ position: 'absolute', top: '20px', right: '20px', fontSize: '2rem', opacity: 0.1 }}>
-              🗺️
+            <div style={{ background: index === 1 ? "#cdcbcbff" : "white", position: 'absolute', top: '20px', right: '20px', fontSize: '2rem', opacity: 0.9 }}>
+               {index === 0 ? "🗺️" : "🔒"}
             </div>
             <h2 style={{ fontSize: '1.5rem', marginBottom: '10px', color: '#34495e' }}>
               {trail.title[lang]}
